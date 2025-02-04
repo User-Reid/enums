@@ -12,5 +12,7 @@ fn main() {
     my_payment_method =
         PaymentMethodType::PayPal(String::from("Bob@gmail.com"), String::from("Tacobell!"));
 
-    println!("{:#?}", my_payment_method)
+    println!("{:#?}", my_payment_method);
+
+    let taco: String = String::from("pie");
 }
