@@ -1,34 +1,24 @@
 #[derive(Debug)]
-struct FoodBill {
-    meal: String,
-    price: f64,
-    dessert: bool,
-    total: f64,
+enum CardSuit {
+    Hearts,
+    Diamonds,
+    Spades,
+    Clubs,
 }
 
-impl FoodBill {
-    fn new(meal: String, price: f64, dessert: bool, total: f64) -> Self {
-        Self {
-            meal,
-            price,
-            dessert,
-            total,
-        }
-    }
-
-    fn total_bill_calculator(&mut self) -> f64 {
-        if self.dessert == false {
-            self.total = (self.price * 0.2) + self.price;
-            self.total
-        } else {
-            self.total = (self.price * 0.2) + self.price + 5.00;
-            self.total
-        }
-    }
+struct Card {
+    rank: String,
+    suit: CardSuit,
 }
 
 fn main() {
-    let mut meal_one: FoodBill = FoodBill::new(String::from("Chicken Alfredo"), 32.00, true, 0.00);
+    let first_card: CardSuit = CardSuit::Hearts;
+    let mut second_card: CardSuit = CardSuit::Spades;
+    let third_card: CardSuit = CardSuit::Clubs;
+    second_card = CardSuit::Diamonds;
 
-    println!("{:#?}", meal_one.total_bill_calculator())
+    let card_suits: [CardSuit; 2] = [CardSuit::Hearts, CardSuit::Clubs];
+    let card_suits2: (CardSuit, CardSuit) = (CardSuit::Hearts, CardSuit::Clubs);
+
+    println!("{:#?}", second_card)
 }
