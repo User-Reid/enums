@@ -7,7 +7,10 @@ enum OperatingSystem {
 
 fn years_since_release(os: &OperatingSystem) -> u32 {
     match os {
-        OperatingSystem::Windows => 39,
+        OperatingSystem::Windows => {
+            println!("Quite a pretty damn old computer!");
+            39
+        }
         OperatingSystem::MacOs => 23,
         OperatingSystem::Linux => 23,
     }
@@ -15,9 +18,6 @@ fn years_since_release(os: &OperatingSystem) -> u32 {
 
 fn main() {
     let my_computer: OperatingSystem = OperatingSystem::Windows;
-    println!(
-        "My {:?} operating system was released {:?} years ago!",
-        my_computer,
-        years_since_release(&my_computer)
-    )
+    let age: u32 = years_since_release(&my_computer);
+    println!("My dad's computer is {age}")
 }
