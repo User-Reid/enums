@@ -8,5 +8,8 @@
   "rust-analyzer.checkOnSave": true,
   "terminal.integrated.fontSize": 15,
   "workbench.panel.defaultLocation": "right",
-  "window.zoomLevel": 0
+  "window.zoomLevel": 0,
+  "editor.inlayHints.enabled": "off",
+  "github.copilot.renameSuggestions.triggerAutomatically": false,
+  "github.copilot.editor.enableAutoCompletions": false
 }
