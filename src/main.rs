@@ -1,23 +1,25 @@
-#[derive(Debug)]
-enum OperatingSystem {
-    Windows,
-    MacOs,
-    Linux,
+enum LaundryCycle {
+    Cold,
+    Hot { temp: u32 },
+    Delicate(String),
 }
 
-fn years_since_release(os: &OperatingSystem) -> u32 {
-    match os {
-        OperatingSystem::Windows => {
-            println!("Quite a pretty damn old computer!");
-            39
+fn wash_laundry(cycle: LaundryCycle) {
+    match cycle {
+        LaundryCycle::Cold => {
+            println!("Running the laundry with cold water.")
         }
-        OperatingSystem::MacOs => 23,
-        OperatingSystem::Linux => 23,
+        LaundryCycle::Hot { temp } => {
+            println!("Running the laundry with a temperature of {temp} degrees");
+        }
+        LaundryCycle::Delicate(fabric_type) => {
+            println!("Running the laundry with {fabric_type}");
+        }
     }
 }
 
 fn main() {
-    let my_computer: OperatingSystem = OperatingSystem::Windows;
-    let age: u32 = years_since_release(&my_computer);
-    println!("My dad's computer is {age}")
+    wash_laundry(LaundryCycle::Delicate(String::from("Bleach")));
+    wash_laundry(LaundryCycle::Hot { temp: 100 });
+    wash_laundry(LaundryCycle::Cold);
 }
