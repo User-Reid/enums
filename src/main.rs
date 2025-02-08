@@ -4,22 +4,26 @@ enum LaundryCycle {
     Delicate(String),
 }
 
-fn wash_laundry(cycle: LaundryCycle) {
-    match cycle {
-        LaundryCycle::Cold => {
-            println!("Running the laundry with cold water.")
-        }
-        LaundryCycle::Hot { temp } => {
-            println!("Running the laundry with a temperature of {temp} degrees");
-        }
-        LaundryCycle::Delicate(fabric_type) => {
-            println!("Running the laundry with {fabric_type}");
+impl LaundryCycle {
+    fn wash_laundry(&self) {
+        match self {
+            LaundryCycle::Cold => {
+                println!("Running the laundry with cold water.")
+            }
+            LaundryCycle::Hot { temp } => {
+                println!("Running the laundry with a temperature of {temp} degrees");
+            }
+            LaundryCycle::Delicate(fabric_type) => {
+                println!("Running the laundry with {fabric_type}");
+            }
         }
     }
 }
 
 fn main() {
-    wash_laundry(LaundryCycle::Delicate(String::from("Bleach")));
-    wash_laundry(LaundryCycle::Hot { temp: 100 });
-    wash_laundry(LaundryCycle::Cold);
+    LaundryCycle::Cold.wash_laundry();
+    let hot_cycle: LaundryCycle = LaundryCycle::Hot { temp: 34 };
+    hot_cycle.wash_laundry();
+    let fabric: LaundryCycle = LaundryCycle::Delicate(String::from("Tacos"));
+    fabric.wash_laundry();
 }
