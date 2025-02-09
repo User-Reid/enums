@@ -22,5 +22,4 @@ impl OnlineOrderStatus {
 fn main() {
     OnlineOrderStatus::Delivered.check();
     OnlineOrderStatus::Ordered.check();
-    OnlineOrderStatus::Packed.check();
 }
