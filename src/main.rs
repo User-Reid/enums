@@ -1,25 +1,26 @@
 #[derive(Debug)]
-enum OnlineOrderStatus {
-    Ordered,
-    Packed,
-    Shipped,
-    Delivered,
+enum Milk {
+    Lowfat(i32),
+    Wholemilk,
 }
 
-impl OnlineOrderStatus {
-    fn check(&self) {
+impl Milk {
+    fn drink(self) {
         match self {
-            OnlineOrderStatus::Delivered => {
-                println!("Your item has been delivered!")
+            Milk::Lowfat(2) => {
+                println!("Delicious! 2% milk is my favorite!")
             }
-            other_status => {
-                println!("No effin clue dog.🤷 aparently your shit is {other_status:?}")
+            Milk::Lowfat(percent) => {
+                println!("You've got the lowfat {percent}% version!")
+            }
+            Milk::Wholemilk => {
+                println!("You've got the whole milk!")
             }
         }
     }
 }
 
 fn main() {
-    OnlineOrderStatus::Delivered.check();
-    OnlineOrderStatus::Ordered.check();
+    Milk::Lowfat(3).drink();
+    Milk::Wholemilk.drink();
 }
