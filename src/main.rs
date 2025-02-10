@@ -6,11 +6,14 @@ enum Milk {
 }
 
 fn main() {
-    let my_beverage: Milk = Milk::Whole;
+    let my_beverage: Milk = Milk::Nondairy {
+        kind: String::from("Taci"),
+    };
 
-    if let Milk::Nondairy { kind } = my_beverage {
-        println!("Im a fuckin whole milk! and its {kind}")
-    } else {
-        println!("Your shit wack")
-    }
+    let Milk::Nondairy { kind } = my_beverage else {
+        println!("You dont have any damn milk, Clown");
+        return;
+    };
+
+    println!("{kind}% Milk is available here.")
 }
